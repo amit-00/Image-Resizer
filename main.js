@@ -130,17 +130,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-    if(mainWindow){
-        if(mainWindow.isMinimized()){
-            mainWindow.restore();
-            mainWindow.focus();
-        }
-        else{
-            mainWindow.focus();
-        }
-
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createMainWindow()
     }
-    else{
-        createMainWindow();
-    }
-});
+  });
